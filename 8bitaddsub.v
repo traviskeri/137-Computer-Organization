@@ -33,7 +33,6 @@ module add_sub_8bit(
 
 wire [7:0] c;
 
-always @
 if (m==1) begin
   assign cin = m;
   inverter_8bit inv1(b, c);
@@ -56,11 +55,11 @@ initial begin
     $display("Time  A   B   cin  cout  s   ovr");
     $monitor("%3d   %b  %b  %b     %b     %b    %b", $time, A, B, cin, cout, s, ovr);
 
-    A = 8’hFF; B = 8’h01; m = 1’b0;
-    A = 8’h7F; B = 8’h01; m = 1’b0;
-    A = 8’h01; B = 8’hFF; m = 1’b0;
-    A = 8’h55; B = 8’hAA; m = 1’b0;
-    A = 8’h80; B = 8’h01; m = 1’b1;
+    A = 8’hFF; B = 8’h01; m = 1’b0;#1;
+    A = 8’h7F; B = 8’h01; m = 1’b0;#1;
+    A = 8’h01; B = 8’hFF; m = 1’b0;#1;
+    A = 8’h55; B = 8’hAA; m = 1’b0;#1:
+    A = 8’h80; B = 8’h01; m = 1’b1;#1;
     A = 8’h6C; B = 8’hCA; m = 1’b1;
 
 
