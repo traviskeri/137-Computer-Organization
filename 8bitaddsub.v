@@ -10,9 +10,9 @@ output ovr);
 wire [7:0] c;
  
 cla_adder_2bits cla1(a[1:0], b[1:0], cin, s[1:0], c[1:0]);
-cla_adder_2bits cla2(a[3:2], b[3:2], c[0], s[3:2], c[3:2]);
-cla_adder_2bits cla3(a[5:4], b[5:4], c[1], s[5:4], c[5:4]);
-cla_adder_2bits cla4(a[7:6], b[7:6], c[2], s[7:6], c[7:6]);
+cla_adder_2bits cla2(a[3:2], b[3:2], c[1], s[3:2], c[3:2]);
+cla_adder_2bits cla3(a[5:4], b[5:4], c[3], s[5:4], c[5:4]);
+cla_adder_2bits cla4(a[7:6], b[7:6], c[5], s[7:6], c[7:6]);
 
 assign ovr = c[6] ^ c[7];
 

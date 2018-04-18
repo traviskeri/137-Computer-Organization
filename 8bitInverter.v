@@ -10,6 +10,7 @@ assign cin = m;
 always @* begin
 if(m==1)begin
 o = ~i;  
+//$monitor("%b", o);
 end else begin
 o = i;
 end
