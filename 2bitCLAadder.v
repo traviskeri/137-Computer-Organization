@@ -44,8 +44,7 @@ endmodule
 module cla_adder_2bits
 (input [1:0] a, b,
 input cin,
-output [1:0] s,
-output cout, ovr);
+output [1:0] s, c);
 
 wire [1:0] p, g, c;
 assign cout = c[1];
@@ -56,28 +55,3 @@ sum_unit_2bits su1(p, {c[0], cin}, s);
 
 endmodule
 
-//====================================================
-
-module testModule();
-
-reg [1:0] a, b;
-reg cin;
-
-wire [1:0] s;
-wire cout, ovr;
-
-cla_adder_2bits cla1(a, b, cin, s, cout, ovr);
-
-initial begin
-    $display("Time  a   b   cin  cout  s");
-    $monitor("%3d   %b  %b  %b     %b     %b", $time, a, b, cin, cout, s);
-
-    a = 2'b10; b = 2'b10; cin = 0;#1;
-    a = 2'b01; b = 2'b10; cin = 1;#1;
-    a = 2'b11; b = 2'b01; cin = 0;#1;
-    a = 2'b11; b = 2'b01; cin = 0;
-
-    $finish;
-end
-
-endmodule
