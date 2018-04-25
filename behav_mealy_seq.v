@@ -15,7 +15,7 @@ module output_gen(
   output z
 );
 
-assign z= q[1] & q[0] & x;
+assign z = q[1] & q[0] & x;
 
 endmodule // 
 
@@ -36,15 +36,15 @@ endmodule //
 
 module behav_mealy_seq(
     input clk, reset, x,
-    output z
+    output  z
 );
 
 wire [1:0] d;
-reg [1:0] q;
+wire [1:0] q;
 
-    next_state_gen nsg(x, q, d);
-    flip_flop ff1(d[0], clk, reset, q[0]);
-    flip_flop ff2(d[1], clk, reset, q[1]);
-    output_gen og(q, x, z);
+next_state_gen nsg(x, q, d);
+flip_flop ff1(d[0], clk, reset, q[0]);
+flip_flop ff2(d[1], clk, reset, q[1]);
+output_gen og(q, x, z);
 
 endmodule
