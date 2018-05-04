@@ -10,10 +10,10 @@ parameter   A = 2'b00,
             D = 2'b11;
 reg [1:0] current_state, next_state;
 
-//Section iv & v : OG and NSG
+
 
 always@(*)
-//begin
+
     case(current_state) //case x
     A:      if(x == 1)begin
                 next_state = B;

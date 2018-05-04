@@ -1,10 +1,11 @@
 `include "mealy_seq.v"
+`include "behave_mealy_seq.v"
 module tester();
 
 reg clock, reset, x;
 wire z;
 
-mealy_seq   m1(clock, reset, x, z);
+mealy_seq  m1(clock, reset, x, z);
 
 initial begin
     $monitor("%4d:  z = %b", $time, z);
