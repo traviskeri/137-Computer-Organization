@@ -4,8 +4,9 @@
 module adder_8bit
 (input [7:0] a, b,
 input cin,
-output [7:0] s,
-output ovr);
+output [7:0] s/*,
+output ovr*/
+);
 
 wire [7:0] c;
  
@@ -14,7 +15,7 @@ cla_adder_2bits cla2(a[3:2], b[3:2], c[1], s[3:2], c[3:2]);
 cla_adder_2bits cla3(a[5:4], b[5:4], c[3], s[5:4], c[5:4]);
 cla_adder_2bits cla4(a[7:6], b[7:6], c[5], s[7:6], c[7:6]);
 
-assign ovr = c[6] ^ c[7];
+//assign ovr = c[6] ^ c[7];
 
 endmodule
 
@@ -22,17 +23,17 @@ endmodule
 module add_sub_8bit(
   input [7:0] a, b,
   input m,
-  output [7:0] s,
-  output ovr, cin);
+  output [7:0] s/*,
+  output ovr, cin*/);
 
 wire [7:0] c;
 
 inverter_8bit inv1(b, m, c, cin);
-adder_8bit add1(a, c, cin, s, ovr);
+adder_8bit add1(a, c, cin, s/*, ovr*/);
 
 endmodule 
 
-module testModule();
+/*module testModule();
 
 reg [7:0] a, b;
 reg m;
@@ -57,4 +58,4 @@ initial begin
     $finish;
 end
 
-endmodule
+endmodule*/

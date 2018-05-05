@@ -1,8 +1,10 @@
-module control
+module control_unit
 (
     input clock, reset, start, mode,
+    output reg d,
     output reg [3:0] out
 );
+
 
 parameter   A = 2'b00,
             B = 2'b01,
@@ -37,12 +39,14 @@ always@(*)
             out[1] = 1;
             out[2] = 0;
             out[3] = 1;
+            d = 1;
         end
         else begin
             out[0] = 1;
             out[1] = 1;
             out[2] = 0;
             out[3] = 1;
+            d = 1;
         end
     endcase
 
