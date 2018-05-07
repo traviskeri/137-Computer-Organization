@@ -31,9 +31,24 @@ end
 //OG
 always@(*)
     case(current_state)
-    A:  out[3:0] = 0;
-    B:  out[1] = 1;
-    C:  out[3] = 1;
+    A:  begin 
+        out[3:0] = 0; 
+        d = 0;
+        end
+    B:  begin
+        out[0] = 0;
+        out[1] = 1;
+        out[2] = 0;
+        out[3] = 0;
+        d = 0; 
+        end
+    C:  begin
+        out[0] = 0;
+        out[1] = 1;
+        out[2] = 1;
+        out[3] = 0;
+        d = 0; 
+        end
     D:  if (mode ==0)begin
             out[0] = 0;
             out[1] = 1;
